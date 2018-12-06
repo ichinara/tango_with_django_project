@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tango_with_django_project'
+    'tango_with_django_project',
+    'rango'
 ]
 
 MIDDLEWARE_CLASSES = [
