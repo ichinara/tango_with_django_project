@@ -7,12 +7,21 @@ django.setup()
 from rango.models import Category, Page
 
 def populate():
-    # First, we will create lists of dictionaries containing the pages
-    # we want to add into each category.
-    # Then we will create a dictionary of dictionaries for our categories.
-    # This might seem a little bit confusing, but it allows us to iterate
-    # through each data structure, and add the data to our models.
-    
+    categories = open('populate_rango_categories.csv').readlines()
+
+    print('Populating %d categories...' % len(categories))
+    for category in categories:
+        cat, views, likes = category.rstrip().split(',')
+        c = add_cat(cat, views, likes)
+
+    pages = open('populate_rango_pages.csv').readlines()
+    print('Populating %d pages...' % len(pages))
+    for page in pages:
+        cat, title, url, views = page.rstrip().split(',')
+        c = add_cat(cat)
+        ok = add_page(c, title, url, views)
+
+
     python_pages = [
         {"title": "Official Python Tutorial",
         "url":"http://docs.python.org/2/tutorial/"},
