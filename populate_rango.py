@@ -7,19 +7,7 @@ django.setup()
 from rango.models import Category, Page
 
 def populate():
-    categories = open('populate_rango_categories.csv').readlines()
 
-    print('Populating %d categories...' % len(categories))
-    for category in categories:
-        cat, views, likes = category.rstrip().split(',')
-        c = add_cat(cat, views, likes)
-
-    pages = open('populate_rango_pages.csv').readlines()
-    print('Populating %d pages...' % len(pages))
-    for page in pages:
-        cat, title, url, views = page.rstrip().split(',')
-        c = add_cat(cat)
-        ok = add_page(c, title, url, views)
 
 
     python_pages = [
@@ -64,12 +52,12 @@ def add_page(cat, title, url, views=0):
     p.url=url
     p.views=views
     p.save()
-    return p
+        return p
 
 def add_cat(name):
     c = Category.objects.get_or_create(name=name)[0]
     c.save()
-    return c
+        return c
 
 # Start execution here!
 if __name__ == '__main__':
