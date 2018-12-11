@@ -3,14 +3,14 @@
 
 {% block title_block %}
         Add a Category
-{% endblock %}
+{% endblock title_block %}
 
 {% block body_block %}
 
 
 
         <div>
-            <form id="category_form" method="post" action="/rango/add_category/">
+                <form role="form" id="category_form" method="post" action="{% url 'add_category' %}">
                 {% csrf_token %}
                 {% for hidden in form.hidden_fields %}
                     {{ hidden }}
@@ -26,4 +26,4 @@
 
 
 
-{% endblock %}
+{% endblock body_block %}
