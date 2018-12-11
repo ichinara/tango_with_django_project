@@ -1,16 +1,12 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html>
 
+{% block title_block %}
+        Sobre nós
+{% endblock %}
 
-<head>
-    <title>Sobre nós</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-</head>
+{% block body_block %}
 
-
-
-<body>
 
         <img src="{% static 'media/howl.gif' %}"
         alt="Imagem em movimento de uma cena do filme O Castelo Animado" /> <!-- acessibilidade -->
@@ -25,7 +21,6 @@
         specify a max_length parameter.
         IntegerField, which stores integers.
         DateField, which stores a Python datetime.date object.
-</body>
 
 
-</html>
+{% endblock %}
